@@ -1,6 +1,5 @@
 # RoaringBitmap
 
-[English](README.md) | [简体中文](README_zh_CN.md)
 
 
 [English](https://github.com/kesmeey/RoaringBitmap/blob/main/README.md) | [简体中文](https://github.com/kesmeey/RoaringBitmap/blob/master/README_zh_CN.md)
