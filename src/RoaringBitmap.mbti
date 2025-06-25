@@ -1,0 +1,105 @@
+// =============== 创建和构造接口 ===============
+
+///| 创建空的 RoaringBitmap
+pub fn new() -> RoaringBitmap
+
+///| 从单个值创建 RoaringBitmap
+pub fn singleton(value : UInt) -> RoaringBitmap
+
+///| 从数组创建 RoaringBitmap
+pub fn from_array(values : Array[UInt]) -> RoaringBitmap
+
+// =============== 基本操作接口 ===============
+
+///| 添加单个元素
+pub fn add(self : RoaringBitmap, value : UInt) -> RoaringBitmap
+
+///| 移除单个元素
+pub fn remove(self : RoaringBitmap, value : UInt) -> RoaringBitmap
+
+///| 检查元素是否存在
+pub fn contains(self : RoaringBitmap, value : UInt) -> Bool
+
+///| 清空bitmap
+pub fn clear(self : RoaringBitmap) -> RoaringBitmap
+
+// =============== 查询接口 ===============
+
+///| 获取bitmap的大小（元素个数）
+pub fn size(self : RoaringBitmap) -> Int
+
+///| 检查bitmap是否为空
+pub fn is_empty(self : RoaringBitmap) -> Bool
+
+///| 获取最小值
+pub fn min(self : RoaringBitmap) -> UInt?
+
+///| 获取最大值
+pub fn max(self : RoaringBitmap) -> UInt?
+
+// =============== 集合操作接口 ===============
+
+///| 并集操作
+pub fn union(self : RoaringBitmap, other : RoaringBitmap) -> RoaringBitmap
+
+///| 交集操作
+pub fn intersect(self : RoaringBitmap, other : RoaringBitmap) -> RoaringBitmap
+
+///| 差集操作 (self - other)
+pub fn difference(self : RoaringBitmap, other : RoaringBitmap) -> RoaringBitmap
+
+///| 对称差集 (XOR) - 在两个集合中但不在交集中的元素
+pub fn xor(self : RoaringBitmap, other : RoaringBitmap) -> RoaringBitmap
+
+// =============== 比较和关系接口 ===============
+
+///| 检查两个bitmap是否相等
+pub fn equals(self : RoaringBitmap, other : RoaringBitmap) -> Bool
+
+///| 检查是否为子集
+pub fn is_subset(self : RoaringBitmap, other : RoaringBitmap) -> Bool
+
+///| 计算两个bitmap的Jaccard相似度
+pub fn jaccard_similarity(self : RoaringBitmap, other : RoaringBitmap) -> Double
+
+// =============== 批量操作接口 ===============
+
+///| 批量添加元素（高性能版本）
+pub fn add_many(self : RoaringBitmap, values : Array[UInt]) -> RoaringBitmap
+
+// =============== 迭代和转换接口 ===============
+
+///| 迭代器支持
+pub fn iter(self : RoaringBitmap, f : (UInt) -> Unit) -> Unit
+
+///| 转换为数组
+pub fn to_array(self : RoaringBitmap) -> Array[UInt]
+
+// =============== 查询和范围操作接口 ===============
+
+///| 范围查询
+pub fn range(self : RoaringBitmap, start : UInt, end : UInt) -> RoaringBitmap
+
+// =============== 统计和调试接口 ===============
+
+///| 获取统计信息
+pub fn get_stats(self : RoaringBitmap) -> RoaringStats
+
+// =============== 容器优化接口 ===============
+
+///| 自动优化容器类型
+pub fn optimize_container(container : Container) -> Container
+
+// =============== 容器辅助接口（内部使用但可公开） ===============
+
+///| 获取容器中的第一个元素（最小值）
+pub fn container_first(container : Container) -> UInt16?
+
+///| 获取容器中的最后一个元素（最大值）
+pub fn container_last(container : Container) -> UInt16?
+
+///| 获取容器中指定索引的元素
+pub fn container_get_at(container : Container, index : Int) -> UInt16?
+
+///| 查找容器中指定值的排名（从0开始）
+pub fn container_rank(container : Container, value : UInt16) -> Int
